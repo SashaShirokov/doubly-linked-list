@@ -23,14 +23,14 @@ class LinkedList {
 
     head() {
       if(this._head === null) {
-        return false;
+        return null;
       }
       return this._head.data;
     }
 
     tail() {
       if(this._tail === null) {
-        return false;
+        return null;
       }
       return this._tail.data;
     }
@@ -65,7 +65,7 @@ class LinkedList {
     }
 
     isEmpty() {
-      if (this._head === null) {
+      if(this._head === null) {
         return true;
       } else {
         return false;
@@ -73,7 +73,9 @@ class LinkedList {
     }
 
     clear() {
-
+      this._head = null;
+      this._tail = null;
+      this.length = 0;
     }
 
     deleteAt(index) {
@@ -87,24 +89,19 @@ class LinkedList {
         var prev = current;
         prev.next = prev.next.next;
       }
-      this._length --;
+      this.length --;
     }
 
     reverse() {
-      var head = this._head,
-      current = this._head,
-      temp;
-      while(current) {
-        temp = current.next;
+      var current = this._head;
+      while(current != null) {
+        var next = current.next;
         current.next = current.prev;
-        current.prev = temp;
-        // current = current.prev;
-        if(!temp) {
-          this._head = current;
-        }
-        current = temp;
+        current = next;
       }
-      return this;
+      var temp = this._head;
+      this._head = this._tail;
+      this._tail = temp;
     }
 
     indexOf(data) {
