@@ -19,6 +19,7 @@ class LinkedList {
         this._tail = temp;
         this.length ++;
       }
+      return this;
     }
 
     head() {
@@ -62,6 +63,7 @@ class LinkedList {
         prev.next = node;
       }
       this.length ++;
+      return this;
     }
 
     isEmpty() {
@@ -76,6 +78,7 @@ class LinkedList {
       this._head = null;
       this._tail = null;
       this.length = 0;
+      return this;
     }
 
     deleteAt(index) {
@@ -90,6 +93,7 @@ class LinkedList {
         prev.next = prev.next.next;
       }
       this.length --;
+      return this;
     }
 
     reverse() {
@@ -102,6 +106,7 @@ class LinkedList {
       var temp = this._head;
       this._head = this._tail;
       this._tail = temp;
+      return this;
     }
 
     indexOf(data) {
